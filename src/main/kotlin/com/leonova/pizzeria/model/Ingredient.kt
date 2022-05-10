@@ -5,8 +5,9 @@ import javax.persistence.*
 @Entity
 class Ingredient(
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    @SequenceGenerator(name = "seq_ingredient_generator", sequenceName = "seq_ingredient", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_ingredient_generator")
+    val id: Int = 0,
 
     @Column(nullable = false)
     val name: String,

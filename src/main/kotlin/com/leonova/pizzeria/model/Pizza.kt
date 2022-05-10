@@ -5,8 +5,9 @@ import javax.persistence.*
 @Entity
 public class Pizza (
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    @SequenceGenerator(name = "seq_pizza_generator", sequenceName = "seq_pizza", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pizza_generator")
+    val id: Int = 0,
 
     @Column(nullable = false)
     val name: String,
@@ -19,5 +20,5 @@ public class Pizza (
         name = "pizza_ingredient",
         joinColumns = [JoinColumn(name = "pizza_id")],
         inverseJoinColumns = [JoinColumn(name = "ingredient_id")])
-    val ingredients: Set<Ingredient>
+    val ingredients: MutableSet<Ingredient>
 )
