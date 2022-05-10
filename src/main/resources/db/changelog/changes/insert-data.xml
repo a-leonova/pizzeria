@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+    <changeSet author="a_leonova" id="2">
+        <insert tableName="pizza">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="Margarita"/>
+            <column name="cost" value="5"/>
+        </insert>
+        <insert tableName="pizza">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="4 Cheese"/>
+            <column name="cost" value="7"/>
+        </insert>
+        <insert tableName="pizza">
+            <column name="id" valueNumeric="3"/>
+            <column name="name" value="Peperoni"/>
+            <column name="cost" value="10"/>
+        </insert>
+
+        <insert tableName="ingredient">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="salami"/>
+        </insert>
+        <insert tableName="ingredient">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="blue cheese"/>
+        </insert>
+        <insert tableName="ingredient">
+            <column name="id" valueNumeric="3"/>
+            <column name="name" value="mozzarella"/>
+        </insert>
+        <insert tableName="ingredient">
+            <column name="id" valueNumeric="4"/>
+            <column name="name" value="rokfor"/>
+        </insert>
+        <insert tableName="ingredient">
+            <column name="id" valueNumeric="5"/>
+            <column name="name" value="cheddar"/>
+        </insert>
+        <insert tableName="ingredient">
+            <column name="id" valueNumeric="6"/>
+            <column name="name" value="tomato"/>
+        </insert>
+        <insert tableName="ingredient">
+            <column name="id" valueNumeric="7"/>
+            <column name="name" value="olives"/>
+        </insert>
+        <insert tableName="ingredient">
+            <column name="id" valueNumeric="8"/>
+            <column name="name" value="tomato paste"/>
+            <column name="is_sauce" value="true"/>
+        </insert>
+        <insert tableName="ingredient">
+            <column name="id" valueNumeric="9"/>
+            <column name="name" value="garlic sauce"/>
+            <column name="is_sauce" value="true"/>
+        </insert>
+
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="1"/>
+            <column name="ingredient_id" value="8"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="1"/>
+            <column name="ingredient_id" value="7"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="1"/>
+            <column name="ingredient_id" value="6"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="1"/>
+            <column name="ingredient_id" value="3"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="1"/>
+            <column name="ingredient_id" value="5"/>
+        </insert>
+
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="2"/>
+            <column name="ingredient_id" value="2"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="2"/>
+            <column name="ingredient_id" value="3"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="2"/>
+            <column name="ingredient_id" value="4"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="2"/>
+            <column name="ingredient_id" value="5"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="2"/>
+            <column name="ingredient_id" value="9"/>
+        </insert>
+
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="3"/>
+            <column name="ingredient_id" value="8"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="3"/>
+            <column name="ingredient_id" value="7"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="3"/>
+            <column name="ingredient_id" value="6"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="3"/>
+            <column name="ingredient_id" value="1"/>
+        </insert>
+        <insert tableName="pizza_ingredient">
+            <column name="pizza_id" value="3"/>
+            <column name="ingredient_id" value="2"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
