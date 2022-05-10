@@ -1,5 +1,7 @@
 package com.leonova.pizzeria.controller
 
+import com.leonova.pizzeria.dto.PizzaFullInfoDto
+import com.leonova.pizzeria.model.Pizza
 import com.leonova.pizzeria.service.PizzaService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
@@ -15,12 +17,17 @@ class PizzaController {
     private lateinit var pizzaService: PizzaService
 
     @GetMapping("/show")
-    fun showAllPizzaData() {
-        pizzaService.showPizzaData()
+    fun showAllPizzaData(): List<PizzaFullInfoDto> {
+        val pizzas = pizzaService.showPizzaData()
+        return convertPizzaToPizzaFullInfoDto(pizzas)
     }
 
     @PostMapping("/substitute")
     fun substituteIngredients(@RequestParam oldIngredient : String, @RequestParam newIngredient: String) {
         pizzaService.substituteIngredient(oldIngredient, newIngredient)
+    }
+
+    private fun convertPizzaToPizzaFullInfoDto(pizzas: List<Pizza>): List<PizzaFullInfoDto> {
+        return pizzas.map { PizzaFullInfoDto(it.name, it.cost, it.ingredients.map { it.name }) }
     }
 }
